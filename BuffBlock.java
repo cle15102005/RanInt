@@ -1,5 +1,6 @@
 package game;
 import java.util.Scanner;
+import java.util.Random;
 
 public class BuffBlock {
 	private int max = 7;
@@ -32,7 +33,15 @@ public class BuffBlock {
 	    }
 		System.out.println("The buff is not available!");
 	}
-	public static void main(String[] args) {
+	
+	public Buff randBuff() {
+		Random rand = new Random();
+		int randomIndex = rand.nextInt(availableBuff.length); 
+		Buff randomBuff = availableBuff[randomIndex];
+		return randomBuff;
+	}
+
+	public BuffBlock buidBuffBlock() {
 		Buff games = new Buff("Games", -100, -100, 0);
 		Buff over_sleep = new Buff("Over sleep", 0, -100,0);
 		Buff fall_in_love = new Buff("Fall in love", -50, -50, 0);
@@ -52,6 +61,13 @@ public class BuffBlock {
 		availableBuff.addBuff(take_a_nap);
 		availableBuff.addBuff(coffee_time);
 		
+		return availableBuff;
 	}
-
+	
+	public static void main(String[] args) {
+	    BuffBlock buff_block = new BuffBlock();
+	    buff_block = buff_block.buidBuffBlock();
+	    Buff buff = buff_block.randBuff();
+	    buff.getName();
+	}
 }
