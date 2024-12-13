@@ -2,13 +2,13 @@ package game;
 import java.util.Scanner;
 
 public class Character {
-	private int HP = 1000;
+	protected int HP = 1000;
 	protected int ATT = 1000;
-	private int DEF = 300;
-	private String name;
-	private String char_class;
-	private int age;
-	private Inventory inventory = new Inventory();
+	protected int DEF = 300;
+	protected String name;
+	protected String char_class;
+	protected int age;
+	protected Inventory inventory = new Inventory();
 	int index = inventory.getIndex();
 	
 	Scanner input = new Scanner(System.in);
