@@ -4,11 +4,15 @@ public class Enemies {
 	private int ene_HP;
 	private int ene_DEF;
 	private int ene_ATT;
+	private String enemyName;
+	private String infor;
 	Character person=new Character();
-	public Enemies(int ene_HP, int ene_DEF, int ene_ATT) {
+	public Enemies(String enemyName,String infor,int ene_HP, int ene_DEF, int ene_ATT) {
 		this.ene_HP = ene_HP;
 		this.ene_DEF = ene_DEF;
 		this.ene_ATT = ene_ATT;
+		this.enemyName= enemyName;
+		this.infor=infor;
 	}
 	
 	public Enemies(int ene_HP, int ene_DEF) {
@@ -16,6 +20,22 @@ public class Enemies {
 		this.ene_DEF = ene_DEF;
 	}
 	
+	public String getEnemyName() {
+		return enemyName;
+	}
+
+	public void setEnemyName(String enemyName) {
+		this.enemyName = enemyName;
+	}
+
+	public String getInfor() {
+		return infor;
+	}
+
+	public void setInfor(String infor) {
+		this.infor = infor;
+	}
+
 	public Enemies(int ene_HP) {
 		this.ene_HP = ene_HP;
 	}
@@ -45,7 +65,7 @@ public class Enemies {
 			ene_HP -= person.getATT();
 		}
 		if (ene_HP<=0) {
-			System.out.println(" This enemy is dead.Good");
+			System.out.println("Enemy" + getEnemyName() +" is dead. Good");
 		}
 	}
 	public void NormalATT() {
