@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.List;
 public class EnemiesBlock {
-	public List<Enemies> existingEnemies = new ArrayList<Enemies>();
+	public List<norEnemies> existingEnemies = new ArrayList<norEnemies>();
 	public Random rand = new Random();
 	
 	public void addNorEnemies(norEnemies enemies) {
