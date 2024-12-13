@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Character {
 	private int HP = 1000;
-	private int ATT = 1000;
-	private int DEF = 1000;
+	protected int ATT = 1000;
+	private int DEF = 300;
 	private String name;
 	private String char_class;
 	private int age;
@@ -64,30 +64,19 @@ public class Character {
 		System.out.println();
 	}
 	
-	void normalATT(int enermy_ATT) {	
-		this.getDamage(enermy_ATT);
-		if (this.DEF <= 0) {
+	void normalATT(Enermy enermy) {	
+		this.getDamage(enermy.getEne_ATT());
+		enermy.GetDamage(this.ATT);
+		if (this.HP <= 0) {
 			System.out.println("You are dead. Game over!");
 		}
 	}
 	
 	void getDamage(int damage){
-		this.DEF = DEF - damage;
+		int HP_lose = DEF - damage;
 		
-		if (this.DEF > 800 && this.DEF <= 1000) {
-			setHP(0);
-		}
-		else if (this.DEF > 650) {
-			setHP(-200);
-		}
-		else if (this.DEF > 500) {
-			setHP(-300);
-		}
-		else if (this.DEF > 300) {
-			setHP(-500);
-		}
-		else {
-			setHP(-700);
+		if (HP_lose < 0) {
+			setHP(HP_lose);
 		}
 	}
 	
@@ -155,7 +144,7 @@ public class Character {
 		System.out.println("Your current stat:");
 		System.out.println("HP: " + this.HP + "/1000");
 		System.out.println("ATT: " + this.ATT + "/1000");
-		System.out.println("DEF: " + this.DEF + "/1000");
+		System.out.println("DEF: " + this.DEF);
 	}
 	
 	void showInformation() {
