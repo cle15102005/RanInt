@@ -6,31 +6,65 @@ public class Buff {
 	private int bonusATT;
 	private int bonusDEF;
 	private int bonusHP;
+	private String information;
 	
-	void getName() {
-		System.out.println(buffName);
+	
+	public String getInfomation() {
+		return information;
 	}
-	
-	void getBonusATT() {
-		System.out.println(bonusATT);
+
+	public void setInfomation(String infomation) {
+		this.information = infomation;
 	}
-	
-	void getBonusDEF() {
-		System.out.println(bonusDEF);
+
+	public String getBuffName() {
+		return buffName;
 	}
-	
-	void getBonusHP() {
-		System.out.println(bonusHP);
+
+	public int getBonusATT() {
+		return bonusATT;
 	}
-	
-	// bonus = 0 if no bonus
-	public Buff(String buffName, int bonusATT, int bonusDEF, int bonusHP) {
+
+	public int getBonusDEF() {
+		return bonusDEF;
+	}
+
+	public int getBonusHP() {
+		return bonusHP;
+	}
+
+	public void setBuffName(String buffName) {
 		this.buffName = buffName;
+	}
+
+	public void setBonusATT(int bonusATT) {
+		this.bonusATT = bonusATT;
+	}
+
+	public void setBonusDEF(int bonusDEF) {
+		this.bonusDEF = bonusDEF;
+	}
+
+	public void setBonusHP(int bonusHP) {
+		this.bonusHP = bonusHP;
+	}
+
+	// bonus = 0 if no bonus
+	public Buff(String buffName, String information, int bonusATT, int bonusDEF, int bonusHP) {
+		this.buffName = buffName;
+		this.information = information;
 		this.bonusATT = bonusATT;
 		this.bonusDEF = bonusDEF;
 		this.bonusHP = bonusHP;
 	}
-
+    
+	public void active_buff(Buff buff, Character character) {
+		character.setATT(buff.getBonusATT());
+		character.setDEF(buff.getBonusDEF());
+		character.setHP(buff.getBonusHP());
+		System.out.println(buff.getInfomation());
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
