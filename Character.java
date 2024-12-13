@@ -153,9 +153,9 @@ public class Character {
 	
 	void showStat() {
 		System.out.println("Your current stat:");
-		System.out.println("HP: " + this.HP);
-		System.out.println("ATT: " + this.ATT);
-		System.out.println("DEF: " + this.DEF);
+		System.out.println("HP: " + this.HP + "/1000");
+		System.out.println("ATT: " + this.ATT + "/1000");
+		System.out.println("DEF: " + this.DEF + "/1000");
 	}
 	
 	void showInformation() {
