@@ -4,13 +4,13 @@ public class Boss extends Enemies {
 	EnemiesBlock subEne= new EnemiesBlock();
 	Character char1 = new Character();
 	public void AdditionalEnemies() {
-        norEnemies enemy1 = new norEnemies(80, 40, 40); 
-        norEnemies enemy2 = new norEnemies(80, 40, 40);
+        norEnemies enemy1 = new norEnemies("enemy1","fami mai dink",80, 40, 40); 
+        norEnemies enemy2 = new norEnemies("enemy2","fami la so 1",80, 40, 40);
         subEne.addNorEnemies(enemy1);
         subEne.addNorEnemies(enemy2);
     }
-	public Boss(int ene_HP,int ene_DEF,int ene_ATT) {
-		super(ene_HP,ene_DEF,ene_ATT);
+	public Boss(String enemyName,String infor,int ene_HP,int ene_DEF,int ene_ATT) {
+		super(enemyName,infor,ene_HP,ene_DEF,ene_ATT);
 	}
 	public void useSkillBoss_End() {
 		AdditionalEnemies();
