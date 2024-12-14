@@ -131,28 +131,26 @@ public class Character {
 		return DEF;
 	}
 
-	public void setName() {
-		System.out.println("Enter your name:");
-		this.name = input.nextLine();
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public void setClass() {
-		System.out.println("Enter your class:");
-		this.char_class = input.nextLine();
+	public void setClass(String _class) {
+		this.char_class = _class;
 	}
 	
-	public void setAge() {
-		System.out.println("Enter your age:");
-		this.age = input.nextInt();
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
-	public void setInformation() {
-		this.setName();
-		this.setClass();
-		this.setAge();
+	public void setInformation(String name, String _class, int age) {
+		this.setName(name);
+		this.setClass(_class);
+		this.setAge(age);
 	}
 	
 	public void showStat() {
+		System.out.println("Your current stats:");
 		System.out.println("HP: " + this.HP + "/1000");
 		System.out.println("ATT: " + this.ATT + "/1000");
 		System.out.println("DEF: " + this.DEF + "/500");

@@ -82,28 +82,35 @@ public class Map {
 	public void battle() {
 		
 	}
-    public void play(){
-    	boolean escapse= false;
-    	Scanner inp= new Scanner(System.in);
-    	System.out.println("INSTRUCTION:");
+	
+	public void instruction() {
+		System.out.println("INSTRUCTION:");
     	System.out.println("1, How to move: w->up, s->down, a->left, d->right");
     	System.out.println("2, When you finish a scene, you will be asked "
-    			+ "\"What do you want to do next?\", "
-    			+ "your options are: \n     1->show information"
-    			+ "\n     2->show your available items"
-    			+ "\n     3->show your stat"
-    			+ "\n     4->use your available items"
-    			+ "\n     5->move");
+    			+ "\"What do you want to do next?\", your options are:"
+    			+ "\n     0 -> show instruction again"
+    			+ "\n     1 -> show information"
+    			+ "\n     2 -> show your available items"
+    			+ "\n     3 -> show your stat"
+    			+ "\n     4 -> use your available items"
+    			+ "\n     5 -> move");
     	System.out.println("3, In the map appear on the screen, \"x\" is your current location "
     			+ "and \"[]\" is the escape door. "
     			+ "\n   Your task is to reach this door, get out the map and win! "
     			+ "\n============================================================================\n");
-    	
+	}
+	
+    public void play(){
+    	boolean escapse= false;
+    	Scanner inp= new Scanner(System.in);
+    	instruction();    	
     	while(!escapse) {
     		this.showMap();
     		System.out.println("What do you want to do next?");
     		String choice = inp.nextLine();
     		switch(choice) {
+    		case "0":
+    			instruction();
     		case "1":
     			character.showInformation();
     			break;
@@ -116,8 +123,9 @@ public class Map {
     		case "4":
     			character.showItems();
     			if (character.getInventory().getIndex() != 0) {
-    				System.out.println("What do you want to use? Please enter its name:");
+    				System.out.println("What do you want to use? Please enter exactly its name:");
         			String item = inp.nextLine();
+        			//System.out.println(item);
         			character.useItem(item);
     			}
     			else {
