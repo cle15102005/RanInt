@@ -1,10 +1,14 @@
-package game;
+package RanIntProject.src.ranint.linh.character;
 import java.util.Scanner;
+
+import RanIntProject.src.ranint.cuong.item.Item;
+import RanIntProject.src.ranint.huy.enemy.Enemy;
+import RanIntProject.src.ranint.linh.inventory.Inventory;
 
 public class Character {
 	protected int HP = 1000;
 	protected int ATT = 1000;
-	protected int DEF = 300;
+	protected int DEF = 500;
 	protected String name;
 	protected String char_class;
 	protected int age;
@@ -18,10 +22,10 @@ public class Character {
 	}
 	
     public Boolean equipItem(Item item) {
-		if (index < 15) {
-			inventory.getItem()[index] = item;
+		if (inventory.getIndex() < 15) {
+			inventory.getItem()[inventory.getIndex()] = item;
 			System.out.println("This " + item.getName() + " has been added to your Inventory.");
-			index ++;
+			inventory.setIndex(1);
 			return true;
 		}
 		else {
@@ -36,18 +40,18 @@ public class Character {
 		this.setHP(item.getBonusHP());
 	}
     
-	public void useItem(Item item) {
+	public void useItem(String item_name) {
 		Boolean check = false;
-		for (int i = 0; i < index; i++) {
-			if (inventory.getItem()[i].getName() == item.getName()) {
-				this.useItemImmediately(item);
-				System.out.println("Congratulate! You are successful using " + item.getName() + "!");
+		for (int i = 0; i < inventory.getIndex(); i++) {
+			if (inventory.getItem()[i].getName() == item_name) {
+				this.useItemImmediately(inventory.getItem()[i]);
+				System.out.println("Congratulate! You are successful using " + item_name + "!");
 				check = true;
-				for (int j = i; j < index-1; j++) {
+				for (int j = i; j < inventory.getIndex()-1; j++) {
 					inventory.getItem()[j] = inventory.getItem()[j+1];
 				}
 				inventory.getItem()[index-1] = null;
-				index --;
+				inventory.setIndex(1);
 				break;
 			}
 		}
@@ -58,15 +62,15 @@ public class Character {
 	
 	public void showItems() {
 		System.out.print("Your current items are: || ");
-		for (int i = 0; i < index; i++) {
+		for (int i = 0; i < inventory.getIndex(); i++) {
 			System.out.print(inventory.getItem()[i].getName() + " || ");
 		}
 		System.out.println();
 	}
 	
-	public void normalATT(Enermy enermy) {	
+	public void normalATT(Enemy enemy) {	
 		//this.getDamage(enermy.getEne_ATT());
-		enermy.GetDamage(this.ATT);
+		enemy.getDamage(this.ATT);
 	}
 	
 	public void getDamage(int damage){
@@ -103,7 +107,7 @@ public class Character {
 	}
 	
 	public void setDEF(int bonusDEF) {
-		if (this.DEF + bonusDEF >= 300) {
+		if (this.DEF + bonusDEF >= 500) {
 			this.DEF = 300;
 		}
 		else if (this.DEF + bonusDEF <= 0) {
@@ -148,10 +152,9 @@ public class Character {
 	}
 	
 	public void showStat() {
-		System.out.println("Your current stat:");
 		System.out.println("HP: " + this.HP + "/1000");
 		System.out.println("ATT: " + this.ATT + "/1000");
-		System.out.println("DEF: " + this.DEF + "/300");
+		System.out.println("DEF: " + this.DEF + "/500");
 	}
 	
 	public void showInformation() {
@@ -162,11 +165,4 @@ public class Character {
 	}
 	
 	public void useSpecialSkill() {}
-	
-	public static void main(String[] args) {
-		Character demo = new Character();
-		demo.setInformation();
-		demo.showInformation();
-		demo.showStat();
-	}
 }
