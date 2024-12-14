@@ -15,11 +15,11 @@ public class EnemyBlock {
 	
 	public norEnemy selectEnemy() {
 		// HP - DEF - ATT
-		norEnemy nor_en1= new norEnemy("nor_en1","bai kiem tra lien tuc", 500, 200, 700);
-		norEnemy nor_en2= new norEnemy("nor_en2","len bang tra bai", 500, 200, 800);
-		norEnemy nor_en3= new norEnemy("nor_en3","bai tap ve nha", 600, 200, 700);
-		norEnemy nor_en4= new norEnemy("nor_en4","bai tap nhom", 700, 200, 800);
-		norEnemy nor_en5= new norEnemy("nor_en5","thuyet trinh", 700, 200, 800);
+		norEnemy nor_en1= new norEnemy("nor_en1","bai kiem tra lien tuc", 800, 400, 700);
+		norEnemy nor_en2= new norEnemy("nor_en2","len bang tra bai", 900, 450, 800);
+		norEnemy nor_en3= new norEnemy("nor_en3","bai tap ve nha", 700, 400, 700);
+		norEnemy nor_en4= new norEnemy("nor_en4","bai tap nhom", 900, 500, 800);
+		norEnemy nor_en5= new norEnemy("nor_en5","thuyet trinh", 900, 400, 800);
 		//norEnemy nor_en6= new norEnemy("nor_en6","bai kiem tra lien tuc 6",500,200,800);
 		//norEnemy nor_en7= new norEnemy("nor_en7","bai kiem tra lien tuc 7",500,200,800);
 		//norEnemy nor_en8= new norEnemy("nor_en8","bai kiem tra lien tuc 8",500,200,800);

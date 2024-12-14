@@ -88,7 +88,7 @@ public class Character {
 		}
 		else if (this.HP + bonusHP <= 0) {
 			this.HP = 0;
-			System.out.println("You are dead. Game over!");
+			System.out.println("You are dead...");
 		}
 		else {
 		    this.HP = this.HP + bonusHP;
@@ -154,6 +154,7 @@ public class Character {
 		System.out.println("HP: " + this.HP + "/1000");
 		System.out.println("ATT: " + this.ATT + "/1000");
 		System.out.println("DEF: " + this.DEF + "/500");
+		System.out.println("--------------------");
 	}
 	
 	public void showInformation() {
@@ -161,7 +162,8 @@ public class Character {
 		System.out.println("Name: " + this.name);
 		System.out.println("Class: " + this.char_class);
 		System.out.println("Age: " + this.age);
+		System.out.println("--------------------");
 	}
 	
-	public void useSpecialSkill() {}
+	public void useSpecialSkill(Enemy enemy) {}
 }

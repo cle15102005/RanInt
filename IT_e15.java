@@ -1,21 +1,25 @@
-package game;
+package RanIntProject.src.ranint.linh.character;
+
+import RanIntProject.src.ranint.huy.enemy.Enemy;
 
 public class IT_e15 extends Character{
-	private int limited_time = 5;
-	void useSpecialSkill(Enermy enermy) {
-		// decrease damage for 150
+	private int limited_time = 3;
+	public void useSpecialSkill(Enemy enemy) {
+		// defend - decrease damage for 300
 		if (limited_time > 0) {
-			int damage = enermy.getEne_ATT() - 150;
+			int damage = enemy.getEne_ATT() - 300;
 			this.getDamage(damage);
-			//enermy.GetDamage(this.ATT);
+			//enemy.getDamage(this.ATT);
+			limited_time -= 1;
 		}
 		else {
 			System.out.println("You can't use this skill anymore!");
 		}
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public int getLimited_time() {
+		return limited_time;
 	}
-
+	public void setLimited_time(int limited_time) {
+		this.limited_time += limited_time;
+	}
 }

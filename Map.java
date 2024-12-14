@@ -177,7 +177,7 @@ public class Map {
     	    		map[this.getCharater_location()[0]][this.getCharater_location()[1]]= 0;
     	        	this.setCharater_location(next_move);
     	    		map[this.getNext_move()[0]][this.getNext_move()[1]]= 1;
-    	    		this.showMap();
+    	    		//this.showMap();
     	    		break;
     	    	case 2:
     	    		this.norEnemyCounter();

@@ -46,14 +46,14 @@ public class Enemy {
 		int lose_DEF = ene_DEF - ATT;
 		if (lose_DEF <0) {
 			ene_HP += (lose_DEF);
-		} 
-		if (ene_HP <= 0) {
-			System.out.println(this.getEnemyName() + " die.");
 		}
 	}
 	
 	public void normalATT(Character character) {
 		character.getDamage(this.getEne_ATT());
-		
+	}
+	
+	public void normalATT_specialDefend(Character character) {
+		character.useSpecialSkill(this);
 	}
 }
