@@ -15,7 +15,7 @@ public class BattleBlock {
 		while(!endGame) {
 			if (character instanceof IT_e10) {
 				System.out.println("Do you want to use your \"ITe10\" special skill? (\"Y\" or \"N\")"
-						+ "\nYou have " + ((IT_e15) character).getLimited_time() + " times more "
+						+ "\nYou have " + ((IT_e10) character).getLimited_time() + " times more "
 						+ "and if you fail to use this skill, you will lose your turn!");
 				String choice = input.nextLine();
 				if (choice.equals("Y")) {

@@ -7,7 +7,7 @@ public class IT_e10 extends Character {
 	public void useSpecialSkill(Enemy enemy) {
 		// ATT + 300 temporary
 		if (limited_time > 0) {
-			this.getDamage(enemy.getEne_ATT());
+			//this.getDamage(enemy.getEne_ATT());
 			enemy.getDamage(this.ATT + 300);
 			limited_time -= 1;
 		}
