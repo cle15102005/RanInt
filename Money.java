@@ -17,7 +17,7 @@ public class Money {
     // Method to set initial funds
     public void setInitialFunds(double amount) {
         this.balance = amount;
-        System.out.println("Initial funds set to: $" + amount);
+        System.out.println("Initial funds set to: vnd" + amount);
     }
 
     // Method to register for a course
@@ -35,12 +35,12 @@ public class Money {
     public void addScholarship(double amount) {
         scholarshipAmount += amount;
         balance += amount;
-        System.out.println("Scholarship of $" + amount + " added. Current balance: $" + balance);
+        System.out.println("Scholarship of vnd" + amount + " added. Current balance: vnd" + balance);
     }
 
     // Method to check remaining balance
     public double checkBalance() {
-        System.out.println("Current balance: $" + balance);
+        System.out.println("Current balance: vnd" + balance);
         return balance;
     }
 
@@ -59,7 +59,7 @@ public class Money {
     public void takeJob(String jobName, double salary) {
         jobs.add(jobName);
         balance += salary;
-        System.out.println("Completed job: " + jobName + " and earned $" + salary + ". Current balance: $" + balance);
+        System.out.println("Completed job: " + jobName + " and earned vnd" + salary + ". Current balance: vnd" + balance);
     }
 
     // Display registered courses
@@ -100,7 +100,7 @@ public class Money {
 
     // Main method to test the Money class
     public static void main(String[] args) {
-        Money studentMoney = new Money(12500000); // Set initial funds to 1250000vnd
+        Money studentMoney = new Money(12500000); // Set initial funds to 12500000vnd
 
         studentMoney.setInitialFunds(25000000); // Optional: reset funds
 
