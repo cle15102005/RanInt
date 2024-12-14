@@ -43,15 +43,16 @@ public class Character {
 	public void useItem(String item_name) {
 		Boolean check = false;
 		for (int i = 0; i < inventory.getIndex(); i++) {
-			if (inventory.getItem()[i].getName() == item_name) {
+			//"==" in java compare the  address of 2 STRINGs not their value
+			if (inventory.getItem()[i].getName().equals(item_name)) {
 				this.useItemImmediately(inventory.getItem()[i]);
 				System.out.println("Congratulate! You are successful using " + item_name + "!");
 				check = true;
 				for (int j = i; j < inventory.getIndex()-1; j++) {
 					inventory.getItem()[j] = inventory.getItem()[j+1];
 				}
-				inventory.getItem()[index-1] = null;
-				inventory.setIndex(1);
+				inventory.getItem()[inventory.getIndex()-1] = null;
+				inventory.setIndex(-1);
 				break;
 			}
 		}
@@ -108,7 +109,7 @@ public class Character {
 	
 	public void setDEF(int bonusDEF) {
 		if (this.DEF + bonusDEF >= 500) {
-			this.DEF = 300;
+			this.DEF = 500;
 		}
 		else if (this.DEF + bonusDEF <= 0) {
 			this.DEF = 0;

@@ -35,13 +35,13 @@ public class BuffBlock {
 	
 	public Buff selectBuff() {
 		
-		Buff games = new Buff("Games", "Oh no, you're addicted to gaming!", -100, -100, 0);
-		Buff over_sleep = new Buff("Over sleep", "Wake up quickly, or you'll be late for class!", 0, -100,0);
-		Buff fall_in_love = new Buff("Fall in love", "Oh, young love! But don't forget to study, okay?", -50, -50, 0);
-		Buff heavy_rain = new Buff("Heavy rain", "It's raining heavily, be careful not to slip! Oh...Plop...", 0, -50, 0);
-		Buff Tet_holiday = new Buff("Tet holiday", "It's Tết, time to relax and unwind!", 0, 100, 0);
-		Buff take_a_nap = new Buff("Take a nap", "A short nap is also very precious.", 0, 50, 0);
-		Buff coffee_time = new Buff("Coffee time", "Let’s drink a cup of coffee and wake up before we doze off again!", 50, 50, 100); 
+		Buff games = new Buff("Games", "Oh no, you're addicted to gaming!", -100, 0, -100);
+		Buff over_sleep = new Buff("Over sleep", "Wake up quickly, or you'll be late for class!", 0, -50, -50);
+		Buff fall_in_love = new Buff("Fall in love", "Oh, young love! But don't forget to study, okay?", -50, -50, 100);
+		Buff heavy_rain = new Buff("Heavy rain", "It's raining heavily, be careful not to slip! Oh...Plop...", 0, -50, -100);
+		Buff Tet_holiday = new Buff("Tet holiday", "It's Tết, time to relax and unwind!", 0, 100, 300);
+		Buff take_a_nap = new Buff("Take a nap", "A short nap is also very precious.", 0, 50, 100);
+		Buff coffee_time = new Buff("Coffee time", "Let’s drink a cup of coffee and wake up before we doze off again!", 50, 50, 150); 
 		// buff coffee time the bonus HP is temporary, return previous HP 1 attack
         
 		//availableBuff.max = 7;
