@@ -1,6 +1,6 @@
 package missionOfHuy;
 
-public class Enemies {
+public class Enemy {
 	private int ene_HP;
 	private int ene_DEF;
 	private int ene_ATT;
@@ -15,7 +15,7 @@ public class Enemies {
 		this.infor=infor;
 	}
 	
-	public Enemies(int ene_HP, int ene_DEF) {
+	public Enemy(int ene_HP, int ene_DEF) {
 		this.ene_HP = ene_HP;
 		this.ene_DEF = ene_DEF;
 	}
