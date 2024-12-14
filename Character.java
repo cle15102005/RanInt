@@ -64,15 +64,12 @@ public class Character {
 		System.out.println();
 	}
 	
-	void normalATT(Enermy enermy) {	
-		this.getDamage(enermy.getEne_ATT());
+	public void normalATT(Enermy enermy) {	
+		//this.getDamage(enermy.getEne_ATT());
 		enermy.GetDamage(this.ATT);
-		if (this.HP <= 0) {
-			System.out.println("You are dead. Game over!");
-		}
 	}
 	
-	void getDamage(int damage){
+	public void getDamage(int damage){
 		int HP_lose = DEF - damage;
 		
 		if (HP_lose < 0) {
@@ -80,30 +77,40 @@ public class Character {
 		}
 	}
 	
-	void setHP(int bonusHP) {
+	public void setHP(int bonusHP) {
 		if (this.HP + bonusHP >= 1000) {
 			this.HP = 1000;
+		}
+		else if (this.HP + bonusHP <= 0) {
+			this.HP = 0;
+			System.out.println("You are dead. Game over!");
 		}
 		else {
 		    this.HP = this.HP + bonusHP;
 		}
 	}
 	
-	void setATT(int bonusATT) {
+	public void setATT(int bonusATT) {
 		if (this.ATT + bonusATT >= 1000) {
 			this.ATT = 1000;
 		}
+		else if (this.ATT + bonusATT <= 0) {
+			this.ATT = 0;
+		}
 		else {
-		    this.HP = this.HP + bonusATT;
+		    this.ATT = this.ATT + bonusATT;
 		}
 	}
 	
-	void setDEF(int bonusDEF) {
-		if (this.DEF + bonusDEF >= 1000) {
-			this.DEF = 1000;
+	public void setDEF(int bonusDEF) {
+		if (this.DEF + bonusDEF >= 300) {
+			this.DEF = 300;
+		}
+		else if (this.DEF + bonusDEF <= 0) {
+			this.DEF = 0;
 		}
 		else {
-		    this.HP = this.HP + bonusDEF;
+		    this.DEF = this.DEF + bonusDEF;
 		}
 	}
 	
@@ -119,42 +126,42 @@ public class Character {
 		return DEF;
 	}
 
-	void setName() {
+	public void setName() {
 		System.out.println("Enter your name:");
 		this.name = input.nextLine();
 	}
 	
-	void setClass() {
+	public void setClass() {
 		System.out.println("Enter your class:");
 		this.char_class = input.nextLine();
 	}
 	
-	void setAge() {
+	public void setAge() {
 		System.out.println("Enter your age:");
 		this.age = input.nextInt();
 	}
 	
-	void setInformation() {
+	public void setInformation() {
 		this.setName();
 		this.setClass();
 		this.setAge();
 	}
 	
-	void showStat() {
+	public void showStat() {
 		System.out.println("Your current stat:");
 		System.out.println("HP: " + this.HP + "/1000");
 		System.out.println("ATT: " + this.ATT + "/1000");
-		System.out.println("DEF: " + this.DEF);
+		System.out.println("DEF: " + this.DEF + "/300");
 	}
 	
-	void showInformation() {
+	public void showInformation() {
 		System.out.println("Character's information:");
 		System.out.println("Name: " + this.name);
 		System.out.println("Class: " + this.char_class);
 		System.out.println("Age: " + this.age);
 	}
 	
-	void useSpecialSkill() {}
+	public void useSpecialSkill() {}
 	
 	public static void main(String[] args) {
 		Character demo = new Character();

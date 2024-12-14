@@ -59,10 +59,10 @@ public class Buff {
 	}
     
 	public void active_buff(Buff buff, Character character) {
+		System.out.println(buff.getInfomation());
 		character.setATT(buff.getBonusATT());
 		character.setDEF(buff.getBonusDEF());
 		character.setHP(buff.getBonusHP());
-		System.out.println(buff.getInfomation());
 	}
 	
 	public static void main(String[] args) {
