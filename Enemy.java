@@ -42,11 +42,23 @@ public class Enemy {
 	public int getEne_ATT() {
 		return ene_ATT;
 	}
+	
+	public void setEne_HP(int ene_HP) {
+		this.ene_HP = ene_HP;
+	}
+	public void setEne_DEF(int ene_DEF) {
+		this.ene_DEF = ene_DEF;
+	}
+	public void setEne_ATT(int ene_ATT) {
+		this.ene_ATT = ene_ATT;
+	}
+	
 	public void getDamage(int ATT) {
 		int lose_DEF = ene_DEF - ATT;
 		if (lose_DEF <0) {
 			ene_HP += (lose_DEF);
 		}
+		this.setEne_HP(ene_HP);
 	}
 	
 	public void normalATT(Character character) {
