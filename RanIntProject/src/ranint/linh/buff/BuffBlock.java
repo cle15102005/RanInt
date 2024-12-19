@@ -34,7 +34,7 @@ public class BuffBlock {
 	}
 	
 	public Buff selectBuff() {
-		
+	
 		Buff games = new Buff("Games", "Oh no, you're addicted to gaming!", -100, -100, 0);
 		Buff over_sleep = new Buff("Over sleep", "Wake up quickly, or you'll be late for class!", 0, -100,0);
 		Buff fall_in_love = new Buff("Fall in love", "Oh, young love! But don't forget to study, okay?", -50, -50, 0);

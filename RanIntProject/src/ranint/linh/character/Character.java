@@ -2,34 +2,39 @@ package ranint.linh.character;
 import java.util.Scanner;
 
 import ranint.cuong.item.Item;
+import ranint.hai.money.Money;
 import ranint.huy.enemy.Enemy;
 import ranint.linh.inventory.Inventory;
 
 public class Character {
 	protected int HP = 1000;
 	protected int ATT = 1000;
-	protected int DEF = 300;
+	protected int DEF = 500;
 	protected String name;
 	protected String char_class;
 	protected int age;
 	protected Inventory inventory = new Inventory();
+	protected Money money= new Money();
 	int index = inventory.getIndex();
-	
 	Scanner input = new Scanner(System.in);
 	
 	public Inventory getInventory() {
 		return inventory;
 	}
 	
+	public Money getMoney() {
+		return money;
+	}
+	
     public Boolean equipItem(Item item) {
-		if (index < 15) {
-			inventory.getItem()[index] = item;
-			System.out.println("This " + item.getName() + " has been added to your Inventory.");
-			index ++;
+		if (inventory.getIndex() < 15) {
+			inventory.getItem()[inventory.getIndex()] = item;
+			System.out.println("(+) " + item.getName() + " has been added to your Inventory.");
+			inventory.setIndex(1);
 			return true;
 		}
 		else {
-		    System.out.println("Your bag is full!");
+		    System.out.println("(+) Your bag is full!");
 		    return false;
 		}
 	}
@@ -40,18 +45,19 @@ public class Character {
 		this.setHP(item.getBonusHP());
 	}
     
-	public void useItem(Item item) {
+	public void useItem(String itemName) {
 		Boolean check = false;
-		for (int i = 0; i < index; i++) {
-			if (inventory.getItem()[i].getName() == item.getName()) {
-				this.useItemImmediately(item);
-				System.out.println("Congratulate! You are successful using " + item.getName() + "!");
+		for (int i = 0; i < inventory.getIndex(); i++) {
+			//"==" in java compare the  address of 2 STRINGs not their value
+			if (inventory.getItem()[i].getName().equals(itemName)) {
+				this.useItemImmediately(inventory.getItem()[i]);
+				System.out.println("(+) You've used" + inventory.getItem()[i].getName() + inventory.getItem()[i].getInfo());
 				check = true;
-				for (int j = i; j < index-1; j++) {
+				for (int j = i; j < inventory.getIndex()-1; j++) {
 					inventory.getItem()[j] = inventory.getItem()[j+1];
 				}
-				inventory.getItem()[index-1] = null;
-				index --;
+				inventory.getItem()[inventory.getIndex()-1] = null;
+				inventory.setIndex(-1);
 				break;
 			}
 		}
@@ -61,9 +67,9 @@ public class Character {
 	}
 	
 	public void showItems() {
-		System.out.print("Your current items are: || ");
-		for (int i = 0; i < index; i++) {
-			System.out.print(inventory.getItem()[i].getName() + " || ");
+		System.out.printf("(+) Your current items are:\n");
+		for (int i = 0; i < inventory.getIndex(); i++) {
+			System.out.printf(" || "+ inventory.getItem()[i].getName() + " || \n");
 		}
 		System.out.println();
 	}
@@ -87,7 +93,7 @@ public class Character {
 		}
 		else if (this.HP + bonusHP <= 0) {
 			this.HP = 0;
-			System.out.println("You are dead. Game over!");
+			System.out.println("You are dead...");
 		}
 		else {
 		    this.HP = this.HP + bonusHP;
@@ -107,8 +113,8 @@ public class Character {
 	}
 	
 	public void setDEF(int bonusDEF) {
-		if (this.DEF + bonusDEF >= 300) {
-			this.DEF = 300;
+		if (this.DEF + bonusDEF >= 500) {
+			this.DEF = 500;
 		}
 		else if (this.DEF + bonusDEF <= 0) {
 			this.DEF = 0;
@@ -129,48 +135,43 @@ public class Character {
 	public int getDEF() {
 		return DEF;
 	}
-
-	public void setName() {
-		System.out.println("Enter your name:");
-		this.name = input.nextLine();
+	
+	public String getCharClass() {
+		return char_class;
 	}
 	
-	public void setClass() {
-		System.out.println("Enter your class:");
-		this.char_class = input.nextLine();
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public void setAge() {
-		System.out.println("Enter your age:");
-		this.age = input.nextInt();
+	public void setCharClass(String _class) {
+		this.char_class = _class;
 	}
 	
-	public void setInformation() {
-		this.setName();
-		this.setClass();
-		this.setAge();
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public void setInformation(String name, String _class, int age) {
+		this.setName(name);
+		this.setCharClass(_class);
+		this.setAge(age);
 	}
 	
 	public void showStat() {
-		System.out.println("Your current stat:");
+		System.out.println("(+) Your current stats:");
 		System.out.println("HP: " + this.HP + "/1000");
 		System.out.println("ATT: " + this.ATT + "/1000");
-		System.out.println("DEF: " + this.DEF + "/300");
+		System.out.println("DEF: " + this.DEF + "/500");
 	}
 	
 	public void showInformation() {
-		System.out.println("Character's information:");
+		System.out.println("(+) Character's information:");
 		System.out.println("Name: " + this.name);
 		System.out.println("Class: " + this.char_class);
 		System.out.println("Age: " + this.age);
+		System.out.println("Your money: "+ this.getMoney().getBalance());
 	}
 	
-	public void useSpecialSkill() {}
-	
-	public static void main(String[] args) {
-		Character demo = new Character();
-		demo.setInformation();
-		demo.showInformation();
-		demo.showStat();
-	}
+	public void useSpecialSkill(Enemy enemy) {}
 }

@@ -6,6 +6,7 @@ public class Item {
 	int bonusATT;
 	int bonusHP;
 	int bonusDEF;
+	double prize;
 	
 	public String getName() {
 		return name;
@@ -22,7 +23,10 @@ public class Item {
 	public String getInfo() {
 		return info;
 	}
-	
+	public double getPrize() {
+		return prize;
+	}
+
 	public Item(String name, String info, int bonusATT, int bonusHP, int bonusDEF) {
 		super();
 		this.name = name;
@@ -45,4 +49,14 @@ public class Item {
 		this.bonusDEF = bonusDEF;
 	}
 	
+	public Item(String name, String info, int bonusATT, int bonusHP, int bonusDEF, double prize) {
+		super();
+		this.name = name;
+		this.info = info;
+		this.bonusATT = bonusATT;
+		this.bonusHP = bonusHP;
+		this.bonusDEF = bonusDEF;
+		this.prize= prize;
+		
+	}
 }
